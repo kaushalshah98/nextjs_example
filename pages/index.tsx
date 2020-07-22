@@ -11,14 +11,14 @@ export interface IAllPostData {
   title: string;
   id: string;
 }
-export default function Home({ allPostsData }: { allPostsData: IAllPostData[] }) {
+const Home = ({ allPostsData }: { allPostsData: IAllPostData[] }) => {
   return (
     <Layout home>
       <Head>
         <title>{siteTitle}</title>
       </Head>
       <section className={utilStyles.headingMd}>
-        <p>[I am a Software Developer]</p>
+        <p>[I am a Software Developer and always eager to learn new Technologies]</p>
         <p>
           (This is a sample website - you’ll be building a site like this in{' '}
           <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
@@ -43,6 +43,7 @@ export default function Home({ allPostsData }: { allPostsData: IAllPostData[] })
     </Layout>
   )
 }
+export default Home;
 
 export const getStaticProps: GetStaticProps = async () => {
   const allPostsData = getSortedPostsData()

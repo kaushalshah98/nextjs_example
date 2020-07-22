@@ -5,15 +5,12 @@ import Date from '../../components/date'
 import utilStyles from '../../styles/utils.module.css'
 import { GetStaticProps, GetStaticPaths } from 'next'
 
-export default function Post({
-  postData
-}: {
-  postData: {
-    title: string
-    date: string
-    contentHtml: string
-  }
-}) {
+export interface IPostData {
+  title: string;
+  date: string;
+  contentHtml: string;
+}
+const Post = ({ postData }: { postData: IPostData }) => {
   return (
     <Layout>
       <Head>
@@ -29,7 +26,7 @@ export default function Post({
     </Layout>
   )
 }
-
+export default Post;
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = getAllPostIds()
   return {
